@@ -1,17 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Font } from "@react-pdf/renderer";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import { fontFamily } from "./helpers/constants";
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import Main from "./pages/Main";
+
+import sansSerif from "./static/Roboto-Regular.ttf";
+import sansSerifCondensed from "./static/Roboto-Condensed.ttf";
+
+Font.register({
+  src: sansSerif,
+  family: fontFamily.sansSerif,
+});
+
+Font.register({
+  src: sansSerifCondensed,
+  family: fontFamily.sansSerifCondensed,
+});
+
+ReactDOM.render(<Main />, document.getElementById("root"));
